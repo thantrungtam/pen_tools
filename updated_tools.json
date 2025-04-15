@@ -1,0 +1,170 @@
+[
+  {
+    "model": "tools.ciphertool",
+    "pk": 1,
+    "fields": {
+      "name": "URL Encoder/Decoder",
+      "slug": "url",
+      "description": "Encode or decode URLs to make them safe for use in web applications. URL encoding replaces unsafe ASCII characters with a % followed by two hexadecimal digits.",
+      "tool_type": "both",
+      "category": 1,
+      "icon": "fa-link",
+      "order": 1,
+      "created_at": "2023-04-15T10:00:00Z"
+    }
+  },
+  {
+    "model": "tools.ciphertool",
+    "pk": 2,
+    "fields": {
+      "name": "Base64 Encoder/Decoder",
+      "slug": "base64",
+      "description": "Base64 encoding converts binary data to ASCII characters, making it safe to transmit over text-based protocols. It's commonly used for email attachments and data URIs.",
+      "tool_type": "both",
+      "category": 1,
+      "icon": "fa-file-code",
+      "order": 2,
+      "created_at": "2023-04-15T10:05:00Z"
+    }
+  },
+  {
+    "model": "tools.ciphertool",
+    "pk": 3,
+    "fields": {
+      "name": "MD5 Hash Generator",
+      "slug": "md5",
+      "description": "Generate an MD5 hash of any text. MD5 is a widely used cryptographic hash function that produces a 128-bit (16-byte) hash value, typically expressed as a 32-digit hexadecimal number.",
+      "tool_type": "encode",
+      "category": 2,
+      "icon": "fa-hashtag",
+      "order": 1,
+      "created_at": "2023-04-15T10:10:00Z"
+    }
+  },
+  {
+    "model": "tools.ciphertool",
+    "pk": 4,
+    "fields": {
+      "name": "HTML Encoder/Decoder",
+      "slug": "html",
+      "description": "Encode or decode HTML entities. HTML encoding converts characters like <, >, &, \" and ' to their corresponding HTML entities to safely display them on web pages.",
+      "tool_type": "both",
+      "category": 1,
+      "icon": "fa-code",
+      "order": 3,
+      "created_at": "2023-04-15T10:15:00Z"
+    }
+  },
+  {
+    "model": "tools.ciphertool",
+    "pk": 5,
+    "fields": {
+      "name": "Caesar Cipher",
+      "slug": "caesar",
+      "description": "The Caesar Cipher is one of the simplest and most widely known encryption techniques. It works by shifting each letter in the plaintext a certain number of places down the alphabet.",
+      "tool_type": "both",
+      "category": 3,
+      "icon": "fa-exchange-alt",
+      "order": 1,
+      "created_at": "2023-04-15T10:20:00Z"
+    }
+  },
+  {
+    "model": "tools.ciphertool",
+    "pk": 6,
+    "fields": {
+      "name": "SHA-1 Hash Generator",
+      "slug": "sha1",
+      "description": "Generate a SHA-1 hash of any text. SHA-1 produces a 160-bit (20-byte) hash value, typically rendered as a 40-digit hexadecimal number.",
+      "tool_type": "encode",
+      "category": 2,
+      "icon": "fa-lock",
+      "order": 2,
+      "created_at": "2023-04-15T10:25:00Z"
+    }
+  },
+  {
+    "model": "tools.ciphertool",
+    "pk": 7,
+    "fields": {
+      "name": "SHA-256 Hash Generator",
+      "slug": "sha256",
+      "description": "Generate a SHA-256 hash of any text. SHA-256 is part of the SHA-2 family and produces a 256-bit (32-byte) hash value, offering improved security over SHA-1.",
+      "tool_type": "encode",
+      "category": 2,
+      "icon": "fa-shield-alt",
+      "order": 3,
+      "created_at": "2023-04-15T10:30:00Z"
+    }
+  },
+  {
+    "model": "tools.ciphertool",
+    "pk": 8,
+    "fields": {
+      "name": "Binary Converter",
+      "slug": "binary",
+      "description": "Convert text to binary code and back. Binary encoding represents each character as a sequence of 8 bits (0s and 1s).",
+      "tool_type": "both",
+      "category": 1,
+      "icon": "fa-binary",
+      "order": 4,
+      "created_at": "2023-04-15T10:35:00Z"
+    }
+  },
+  {
+    "model": "tools.ciphertool",
+    "pk": 9,
+    "fields": {
+      "name": "Hex Encoder/Decoder",
+      "slug": "hex",
+      "description": "Convert text to hexadecimal representation and back. Hexadecimal encoding represents each byte as a pair of hexadecimal digits (0-9, A-F).",
+      "tool_type": "both",
+      "category": 1,
+      "icon": "fa-superscript",
+      "order": 5,
+      "created_at": "2023-04-15T10:40:00Z"
+    }
+  },
+  {
+    "model": "tools.ciphertool",
+    "pk": 10,
+    "fields": {
+      "name": "Morse Code Translator",
+      "slug": "morse",
+      "description": "Convert text to Morse code and back. Morse code represents characters as sequences of dots and dashes, originally developed for telegraph communication.",
+      "tool_type": "both",
+      "category": 4,
+      "icon": "fa-signal",
+      "order": 1,
+      "created_at": "2023-04-15T10:45:00Z"
+    }
+  },
+  {
+    "model": "tools.ciphertool",
+    "pk": 11,
+    "fields": {
+      "name": "ROT13 Cipher",
+      "slug": "rot13",
+      "description": "Apply ROT13 (rotate by 13 places) encoding to text. ROT13 is a simple letter substitution cipher that replaces each letter with the letter 13 positions after it in the alphabet.",
+      "tool_type": "both",
+      "category": 3,
+      "icon": "fa-sync",
+      "order": 2,
+      "created_at": "2023-04-15T10:50:00Z"
+    }
+  },
+  {
+    "model": "tools.ciphertool",
+    "pk": 12,
+    "fields": {
+      "name": "Atbash Cipher",
+      "slug": "atbash",
+      "description": "Apply the Atbash cipher to your text. Atbash is a substitution cipher where each letter is replaced by its mirror letter in the alphabet (A→Z, B→Y, etc.).",
+      "tool_type": "both",
+      "category": 3,
+      "icon": "fa-retweet",
+      "order": 3,
+      "created_at": "2023-04-15T10:55:00Z"
+    }
+  }
+] 

@@ -1,0 +1,9 @@
+Django>=4.0.0
+asgiref>=3.4.1
+sqlparse>=0.4.2
+Pillow>=9.0.0
+django-crispy-forms>=1.14.0
+crispy-bootstrap5>=0.6
+libsass>=0.21.0
+django-compressor>=4.1
+django-sass-processor>=1.2 

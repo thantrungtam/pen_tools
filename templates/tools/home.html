@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %}Cipher Tools - Encode & Decode{% endblock %}
+
+{% block content %}
+<div class="row align-items-center py-5">
+    <div class="col-lg-6">
+        <h1 class="display-4 fw-bold mb-4">Encode, Decode & Secure Your Data</h1>
+        <p class="lead mb-4">
+            A suite of powerful tools to help you encode, decode, encrypt and decrypt your data with ease.
+            All tools run directly in your browser - no data is sent to our servers.
+        </p>
+        <div class="d-grid gap-2 d-md-flex">
+            <a href="{% url 'tools_list' %}" class="btn btn-primary btn-lg px-4 me-md-2">Explore Tools</a>
+            <a href="{% url 'about' %}" class="btn btn-outline-secondary btn-lg px-4">Learn More</a>
+        </div>
+    </div>
+    <div class="col-lg-6 d-none d-lg-block">
+        <img src="https://via.placeholder.com/600x400?text=Cipher+Tools" class="img-fluid rounded shadow" alt="Cipher Tools">
+    </div>
+</div>
+
+<hr class="my-5">
+
+<h2 class="text-center mb-5">Popular Tools</h2>
+
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    {% for tool in tools %}
+    <div class="col">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">{{ tool.name }}</h5>
+                <p class="card-text">{{ tool.description|truncatewords:15 }}</p>
+                <span class="badge bg-primary">{{ tool.get_tool_type_display }}</span>
+            </div>
+            <div class="card-footer bg-transparent border-0">
+                <a href="{{ tool.get_absolute_url }}" class="btn btn-sm btn-outline-primary">Use Tool</a>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <div class="col-12 text-center">
+        <p>No tools available yet. Check back soon!</p>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="text-center mt-4">
+    <a href="{% url 'tools_list' %}" class="btn btn-primary">View All Tools</a>
+</div>
+{% endblock %} 

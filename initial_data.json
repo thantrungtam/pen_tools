@@ -1,0 +1,57 @@
+[
+  {
+    "model": "tools.ciphertool",
+    "pk": 1,
+    "fields": {
+      "name": "URL Encoder/Decoder",
+      "slug": "url",
+      "description": "Encode or decode URLs to make them safe for use in web applications. URL encoding replaces unsafe ASCII characters with a % followed by two hexadecimal digits.",
+      "tool_type": "both",
+      "created_at": "2023-04-15T10:00:00Z"
+    }
+  },
+  {
+    "model": "tools.ciphertool",
+    "pk": 2,
+    "fields": {
+      "name": "Base64 Encoder/Decoder",
+      "slug": "base64",
+      "description": "Base64 encoding converts binary data to ASCII characters, making it safe to transmit over text-based protocols. It's commonly used for email attachments and data URIs.",
+      "tool_type": "both",
+      "created_at": "2023-04-15T10:05:00Z"
+    }
+  },
+  {
+    "model": "tools.ciphertool",
+    "pk": 3,
+    "fields": {
+      "name": "MD5 Hash Generator",
+      "slug": "md5",
+      "description": "Generate an MD5 hash of any text. MD5 is a widely used cryptographic hash function that produces a 128-bit (16-byte) hash value, typically expressed as a 32-digit hexadecimal number.",
+      "tool_type": "encode",
+      "created_at": "2023-04-15T10:10:00Z"
+    }
+  },
+  {
+    "model": "tools.ciphertool",
+    "pk": 4,
+    "fields": {
+      "name": "HTML Encoder/Decoder",
+      "slug": "html",
+      "description": "Encode or decode HTML entities. HTML encoding converts characters like <, >, &, \" and ' to their corresponding HTML entities to safely display them on web pages.",
+      "tool_type": "both",
+      "created_at": "2023-04-15T10:15:00Z"
+    }
+  },
+  {
+    "model": "tools.ciphertool",
+    "pk": 5,
+    "fields": {
+      "name": "Caesar Cipher",
+      "slug": "caesar",
+      "description": "The Caesar Cipher is one of the simplest and most widely known encryption techniques. It works by shifting each letter in the plaintext a certain number of places down the alphabet.",
+      "tool_type": "both",
+      "created_at": "2023-04-15T10:20:00Z"
+    }
+  }
+] 

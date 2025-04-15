@@ -1,0 +1,42 @@
+[
+  {
+    "model": "tools.category",
+    "pk": 1,
+    "fields": {
+      "name": "Encoders & Decoders",
+      "slug": "encoders-decoders",
+      "description": "Tools for encoding and decoding data in various formats.",
+      "order": 1
+    }
+  },
+  {
+    "model": "tools.category",
+    "pk": 2,
+    "fields": {
+      "name": "Hash Functions",
+      "slug": "hash-functions",
+      "description": "Tools for generating cryptographic hashes of data.",
+      "order": 2
+    }
+  },
+  {
+    "model": "tools.category",
+    "pk": 3,
+    "fields": {
+      "name": "Classical Ciphers",
+      "slug": "classical-ciphers",
+      "description": "Traditional encryption methods used throughout history.",
+      "order": 3
+    }
+  },
+  {
+    "model": "tools.category",
+    "pk": 4,
+    "fields": {
+      "name": "Text Utilities",
+      "slug": "text-utilities",
+      "description": "Useful tools for text manipulation and conversion.",
+      "order": 4
+    }
+  }
+] 

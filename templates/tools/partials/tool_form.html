@@ -1,0 +1,92 @@
+<form class="process-form" method="post">
+    {% csrf_token %}
+    <input type="hidden" name="operation" value="{{ operation }}">
+    
+    <div class="mb-4">
+        <label for="{{ operation }}-input" class="form-label">
+            {% if operation == 'encode' %}
+            <i class="fas fa-file-alt me-1"></i> Text to Encode
+            {% else %}
+            <i class="fas fa-file-alt me-1"></i> Text to Decode
+            {% endif %}
+        </label>
+        <textarea id="{{ operation }}-input" class="form-control input-text" rows="5" placeholder="{% if operation == 'encode' %}Enter text to encode{% else %}Enter text to decode{% endif %}"></textarea>
+    </div>
+    
+    {% if tool.slug == 'caesar' %}
+    <div class="mb-4">
+        <label for="{{ operation }}-shift" class="form-label">
+            <i class="fas fa-sliders-h me-1"></i> Shift Value
+        </label>
+        <div class="input-group">
+            <span class="input-group-text"><i class="fas fa-exchange-alt"></i></span>
+            <input type="number" id="{{ operation }}-shift" name="shift" class="form-control shift-value" min="1" max="25" value="3">
+        </div>
+        <div class="form-text">Enter a number between 1-25 for the Caesar cipher shift.</div>
+    </div>
+    {% endif %}
+    
+    {% if tool.slug == 'affine' %}
+    <div class="mb-4">
+        <div class="row">
+            <div class="col-md-6">
+                <label for="{{ operation }}-a-value" class="form-label">
+                    <i class="fas fa-sliders-h me-1"></i> Parameter a
+                </label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-calculator"></i></span>
+                    <input type="number" id="{{ operation }}-a-value" name="a" class="form-control a-value" min="1" max="25" value="5">
+                </div>
+                <div class="form-text">Must be coprime with 26 (not divisible by 2 or 13).</div>
+            </div>
+            <div class="col-md-6">
+                <label for="{{ operation }}-b-value" class="form-label">
+                    <i class="fas fa-sliders-h me-1"></i> Parameter b
+                </label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-calculator"></i></span>
+                    <input type="number" id="{{ operation }}-b-value" name="b" class="form-control b-value" min="0" max="25" value="8">
+                </div>
+                <div class="form-text">Value between 0-25.</div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    
+    <div class="mb-4">
+        <div class="d-flex gap-2">
+            <button type="submit" class="btn btn-primary">
+                {% if operation == 'encode' %}
+                <i class="fas fa-lock me-1"></i> Encode
+                {% else %}
+                <i class="fas fa-unlock me-1"></i> Decode
+                {% endif %}
+                <div class="spinner-border spinner-border-sm ms-1 d-none loading-spinner" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </button>
+            <button type="reset" class="btn btn-outline-secondary">
+                <i class="fas fa-times me-1"></i> Clear
+            </button>
+        </div>
+    </div>
+    
+    <div class="mb-3">
+        <label for="{{ operation }}-result" class="form-label">
+            {% if operation == 'encode' %}
+            <i class="fas fa-check-circle me-1"></i> Encoded Result
+            {% else %}
+            <i class="fas fa-check-circle me-1"></i> Decoded Result
+            {% endif %}
+        </label>
+        <div class="input-group">
+            <textarea id="{{ operation }}-result" class="form-control result-box" rows="5" readonly></textarea>
+            <button class="btn btn-outline-primary copy-btn" type="button" data-target="{{ operation }}-result">
+                <i class="fas fa-copy"></i> Copy
+            </button>
+        </div>
+        <div class="form-text text-end">
+            <i class="fas fa-info-circle me-1"></i> Results are processed locally in your browser
+        </div>
+    </div>
+</form> 

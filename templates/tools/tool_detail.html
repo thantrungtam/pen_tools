@@ -1,0 +1,219 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ tool.name }} | Cipher Tools{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-12">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'tools_list' %}">Tools</a></li>
+                {% if tool.category %}
+                <li class="breadcrumb-item"><a href="{% url 'tools_list' %}?category={{ tool.category.slug }}">{{ tool.category.name }}</a></li>
+                {% endif %}
+                <li class="breadcrumb-item active" aria-current="page">{{ tool.name }}</li>
+            </ol>
+        </nav>
+        
+        <h1 class="display-5 fw-bold mb-3">
+            <i class="fas {{ tool.icon }} me-2 text-primary"></i> {{ tool.name }}
+        </h1>
+        <p class="lead">{{ tool.description }}</p>
+        {% if tool.category %}
+        <div class="mb-3">
+            <a href="{% url 'tools_list' %}?category={{ tool.category.slug }}" class="badge bg-secondary text-decoration-none">
+                <i class="fas fa-folder me-1"></i> {{ tool.category.name }}
+            </a>
+            <span class="badge bg-primary">{{ tool.get_tool_type_display }}</span>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<div class="row">
+    <!-- Left Sidebar -->
+    <div class="col-md-3 mb-4">
+        <!-- Categories -->
+        <div class="card category-sidebar mb-4">
+            <div class="card-header bg-primary text-white">
+                <h5 class="card-title mb-0"><i class="fas fa-folder me-2"></i>Categories</h5>
+            </div>
+            <div class="card-body p-0">
+                <div class="list-group list-group-flush">
+                    <a href="{% url 'tools_list' %}" class="list-group-item category-header">
+                        <i class="fas fa-layer-group me-2"></i> All Tools
+                    </a>
+                    
+                    {% for category in categories %}
+                    <div>
+                        <div class="list-group-item category-header {% if tool.category.id == category.id %}active{% endif %}" 
+                             data-target="#category-{{ category.slug }}">
+                            <i class="fas fa-folder me-2"></i> 
+                            {{ category.name }}
+                            <i class="fas fa-chevron-{% if tool.category.id == category.id %}down{% else %}right{% endif %} float-end mt-1"></i>
+                        </div>
+                        <div class="collapse {% if tool.category.id == category.id %}show{% endif %}" id="category-{{ category.slug }}">
+                            <div class="category-items">
+                                {% for cat_tool in category.tools.all %}
+                                <div class="category-item {% if tool.id == cat_tool.id %}active{% endif %}">
+                                    <a href="{{ cat_tool.get_absolute_url }}">
+                                        <i class="fas {{ cat_tool.icon }} me-2"></i> {{ cat_tool.name }}
+                                    </a>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        
+        <!-- Related Tools -->
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h5 class="card-title mb-0"><i class="fas fa-link me-2"></i>Related Tools</h5>
+            </div>
+            <div class="card-body p-0">
+                <div class="list-group list-group-flush">
+                    {% for related_tool in related_tools %}
+                    <a href="{{ related_tool.get_absolute_url }}" class="list-group-item list-group-item-action">
+                        <i class="fas {{ related_tool.icon }} me-2 text-primary"></i> 
+                        {{ related_tool.name }}
+                        {% if related_tool.category %}
+                        <span class="badge bg-secondary float-end">{{ related_tool.category.name }}</span>
+                        {% endif %}
+                    </a>
+                    {% empty %}
+                    <div class="list-group-item text-center">No related tools found.</div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="col-md-9">
+        <div class="card shadow">
+            <div class="card-header bg-white">
+                {% if tool.tool_type == 'both' %}
+                <ul class="nav nav-tabs card-header-tabs" id="toolTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="encode-tab" data-bs-toggle="tab" data-bs-target="#encode-tab-pane" type="button" role="tab">
+                            <i class="fas fa-lock me-1"></i> Encoder
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="decode-tab" data-bs-toggle="tab" data-bs-target="#decode-tab-pane" type="button" role="tab">
+                            <i class="fas fa-unlock me-1"></i> Decoder
+                        </button>
+                    </li>
+                </ul>
+                {% else %}
+                <h5 class="card-title mb-0">
+                    {% if tool.tool_type == 'encode' %}
+                    <i class="fas fa-lock me-1"></i>
+                    {% else %}
+                    <i class="fas fa-unlock me-1"></i>
+                    {% endif %}
+                    {{ tool.get_tool_type_display }}
+                </h5>
+                {% endif %}
+            </div>
+            <div class="card-body">
+                {% if tool.tool_type == 'both' %}
+                <div class="tab-content" id="toolTabsContent">
+                    <div class="tab-pane fade show active" id="encode-tab-pane" role="tabpanel" tabindex="0">
+                        <!-- Encode Form -->
+                        <div class="encode-section">
+                            {% include 'tools/partials/tool_form.html' with operation='encode' %}
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="decode-tab-pane" role="tabpanel" tabindex="0">
+                        <!-- Decode Form -->
+                        <div class="decode-section">
+                            {% include 'tools/partials/tool_form.html' with operation='decode' %}
+                        </div>
+                    </div>
+                </div>
+                {% elif tool.tool_type == 'encode' %}
+                <!-- Encode Only Form -->
+                <div class="encode-section">
+                    {% include 'tools/partials/tool_form.html' with operation='encode' %}
+                </div>
+                {% elif tool.tool_type == 'decode' %}
+                <!-- Decode Only Form -->
+                <div class="decode-section">
+                    {% include 'tools/partials/tool_form.html' with operation='decode' %}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    $(document).ready(function() {
+        // Handle encoding/decoding via AJAX
+        $('.process-form').on('submit', function(e) {
+            e.preventDefault();
+            
+            const form = $(this);
+            const resultBox = form.find('.result-box');
+            const loadingSpinner = form.find('.loading-spinner');
+            
+            // Show loading spinner
+            loadingSpinner.removeClass('d-none');
+            
+            // Prepare data object
+            let data = {
+                'text': form.find('.input-text').val(),
+                'operation': form.find('input[name="operation"]').val(),
+                'tool_type': '{{ tool.slug }}',
+                'csrfmiddlewaretoken': '{{ csrf_token }}'
+            };
+            
+            // Add shift parameter for Caesar cipher
+            if ('{{ tool.slug }}' === 'caesar') {
+                data.shift = form.find('.shift-value').val();
+            }
+            
+            $.ajax({
+                type: 'POST',
+                url: '{% url "process_text" %}',
+                data: data,
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                },
+                success: function(data) {
+                    resultBox.val(data.result);
+                    loadingSpinner.addClass('d-none');
+                },
+                error: function() {
+                    resultBox.val('An error occurred. Please try again.');
+                    loadingSpinner.addClass('d-none');
+                }
+            });
+        });
+        
+        // Copy to clipboard functionality
+        $('.copy-btn').on('click', function() {
+            const btn = $(this);
+            const targetId = btn.data('target');
+            const textArea = $('#' + targetId);
+            
+            textArea.select();
+            document.execCommand('copy');
+            
+            // Change button text temporarily
+            const originalText = btn.text();
+            btn.text('Copied!');
+            setTimeout(function() {
+                btn.text(originalText);
+            }, 1500);
+        });
+    });
+</script>
+{% endblock %} 

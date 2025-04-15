@@ -1,0 +1,92 @@
+// Variables
+$primary: #6658d3;
+$secondary: #6c757d;
+$success: #28a745;
+$info: #17a2b8;
+$warning: #ffc107;
+$danger: #dc3545;
+$light: #f8f9fa;
+$dark: #343a40;
+
+// Custom styles
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
+}
+
+// Navbar customization
+.navbar {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  
+  .navbar-brand {
+    font-weight: 600;
+    
+    i {
+      color: lighten($primary, 25%);
+    }
+  }
+}
+
+// Cards
+.card {
+  border-radius: 0.5rem;
+  border: none;
+  transition: transform 0.3s, box-shadow 0.3s;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+  }
+  
+  .card-title {
+    font-weight: 600;
+  }
+}
+
+// Tool form
+.process-form {
+  .input-text, .result-box {
+    resize: none;
+    font-family: monospace;
+  }
+  
+  .result-box {
+    background-color: #f8f9fa;
+  }
+}
+
+// Copy button
+.copy-btn {
+  &:hover {
+    background-color: $primary;
+    color: white;
+  }
+}
+
+// Badges
+.badge {
+  font-weight: 500;
+  padding: 0.4rem 0.6rem;
+  
+  &.bg-primary {
+    background-color: rgba($primary, 0.1) !important;
+    color: $primary;
+    border: 1px solid rgba($primary, 0.2);
+  }
+}
+
+// Footer
+footer {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+// Responsive adjustments
+@media (max-width: 767.98px) {
+  .display-4 {
+    font-size: 2.5rem;
+  }
+  
+  .display-5 {
+    font-size: 2rem;
+  }
+} 

@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block title %}About Cipher Tools{% endblock %}
+
+{% block content %}
+<div class="row mb-5">
+    <div class="col-12">
+        <h1 class="display-5 fw-bold mb-4">About Cipher Tools</h1>
+        <p class="lead">A collection of encryption, encoding, and decoding tools built with Django.</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-8">
+        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <h2 class="h4 mb-3">What is Cipher Tools?</h2>
+                <p>
+                    Cipher Tools is a free online platform that provides a collection of utilities for encoding, decoding, 
+                    encrypting, and decrypting data. Our tools are designed to be simple and easy to use, with an intuitive interface
+                    that makes it easy to convert your data between different formats.
+                </p>
+                <p>
+                    All of our tools run directly in your browser - we don't send your data to our servers for processing, 
+                    ensuring your information remains private and secure.
+                </p>
+            </div>
+        </div>
+        
+        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <h2 class="h4 mb-3">Our Tools</h2>
+                <p>We offer a variety of tools including:</p>
+                <ul>
+                    <li><strong>URL Encoder/Decoder</strong> - Convert URLs to a web-safe format and back</li>
+                    <li><strong>Base64 Encoder/Decoder</strong> - Convert binary data to a text format and back</li>
+                    <li><strong>MD5 Hash Generator</strong> - Generate an MD5 hash from your input text</li>
+                    <li><strong>HTML Encoder/Decoder</strong> - Convert text with HTML special characters</li>
+                    <li><strong>Caesar Cipher</strong> - Encrypt and decrypt using the classic Caesar shift cipher</li>
+                </ul>
+                <p>
+                    <a href="{% url 'tools_list' %}" class="btn btn-primary">View All Tools</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-lg-4">
+        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <h2 class="h4 mb-3">Privacy & Security</h2>
+                <p>
+                    <i class="fas fa-shield-alt text-success me-2"></i> All processing is done in your browser
+                </p>
+                <p>
+                    <i class="fas fa-lock text-success me-2"></i> Your data is never sent to our servers
+                </p>
+                <p>
+                    <i class="fas fa-code text-success me-2"></i> Open source and transparent
+                </p>
+            </div>
+        </div>
+        
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h2 class="h4 mb-3">Contact</h2>
+                <p>If you have any questions or feedback, please feel free to reach out:</p>
+                <p>
+                    <i class="fas fa-envelope me-2"></i> contact@ciphertools.example.com
+                </p>
+                <p>
+                    <i class="fab fa-github me-2"></i> <a href="#" target="_blank">GitHub</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

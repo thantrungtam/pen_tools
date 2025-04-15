@@ -1,0 +1,160 @@
+/* Main Styles */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
+}
+
+/* Navbar */
+.navbar {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+.navbar .navbar-brand {
+  font-weight: 600;
+}
+.navbar .navbar-brand i {
+  color: #b5adec;
+}
+
+/* Cards */
+.card {
+  border-radius: 0.5rem;
+  border: none;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+}
+.card .card-title {
+  font-weight: 600;
+}
+
+/* Tool form */
+.process-form .input-text, .process-form .result-box {
+  resize: none;
+  font-family: monospace;
+}
+.process-form .result-box {
+  background-color: #f8f9fa;
+}
+
+/* Copy button */
+.copy-btn:hover {
+  background-color: #6658d3;
+  color: white;
+}
+
+/* Badges */
+.badge {
+  font-weight: 500;
+  padding: 0.4rem 0.6rem;
+}
+.badge.bg-primary {
+  background-color: rgba(102, 88, 211, 0.1) !important;
+  color: #6658d3;
+  border: 1px solid rgba(102, 88, 211, 0.2);
+}
+
+/* Footer */
+footer {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Custom icons */
+.fa-binary:before {
+  content: "01";
+  font-family: monospace;
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Categories sidebar */
+.list-group-item.active {
+  background-color: #6658d3;
+  border-color: #6658d3;
+}
+.list-group-item.active a {
+  color: white;
+  text-decoration: none;
+}
+.list-group-item:not(.active) a {
+  color: #495057;
+  text-decoration: none;
+}
+.list-group-item:not(.active) a:hover {
+  color: #6658d3;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767.98px) {
+  .display-4 {
+    font-size: 2.5rem;
+  }
+  .display-5 {
+    font-size: 2rem;
+  }
+}
+
+/* Dark Mode */
+.dark-mode {
+  background-color: #212529;
+  color: #f8f9fa;
+}
+
+.dark-mode .card {
+  background-color: #2a2e32;
+  color: #f8f9fa;
+}
+
+.dark-mode .card-header {
+  background-color: #2a2e32;
+  border-bottom-color: #343a40;
+}
+
+.dark-mode .nav-tabs .nav-link {
+  color: #e9ecef;
+}
+
+.dark-mode .nav-tabs .nav-link.active {
+  background-color: #2a2e32;
+  color: #f8f9fa;
+  border-color: #343a40;
+}
+
+.dark-mode .form-control {
+  background-color: #343a40;
+  border-color: #495057;
+  color: #f8f9fa;
+}
+
+.dark-mode .form-text {
+  color: #adb5bd;
+}
+
+.dark-mode footer {
+  background-color: #2a2e32 !important;
+  color: #f8f9fa;
+  border-top-color: #343a40;
+}
+
+.dark-mode .badge.bg-primary {
+  background-color: rgba(102, 88, 211, 0.2) !important;
+}
+
+.dark-mode #dark-mode-toggle i::before {
+  content: "\f185"; /* sun icon */
+}
+
+.dark-mode .list-group-item:not(.active) {
+  background-color: #2a2e32;
+  border-color: #343a40;
+}
+
+.dark-mode .list-group-item:not(.active) a {
+  color: #e9ecef;
+}
+
+.dark-mode .list-group-item.active {
+  background-color: #6658d3;
+  border-color: #6658d3;
+} 
